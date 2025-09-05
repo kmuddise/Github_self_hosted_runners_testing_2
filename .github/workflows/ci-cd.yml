@@ -4,6 +4,9 @@ on:
   push:
     branches: [ main ]
 
+permissions:
+  contents: write   # 👈 give Actions permission to push
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -16,4 +19,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./   # root folder (where index.html is located)
+          publish_dir: ./   # folder where index.html exists
